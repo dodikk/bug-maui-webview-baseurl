@@ -11,16 +11,25 @@ public partial class MainPage : ContentPage
 
     private async Task InitWebViewAsync()
     {
-        PlainWebviewHtmlSource.BaseUrl = BaseUrlForCaptcha;
-
-        string txtCaptchaHtmlTemplate = "";
-        using (var htmlTemplateFileStream = await FileSystem.OpenAppPackageFileAsync("CaptchaPageTemplate.html.txt"))
-        using (var htmlTemplateReader = new System.IO.StreamReader(htmlTemplateFileStream))
+        try
         {
-            txtCaptchaHtmlTemplate = await htmlTemplateReader.ReadToEndAsync();
-        }
+            PlainWebviewHtmlSource.BaseUrl = BaseUrlForCaptcha;
 
-        PlainWebviewHtmlSource.Html = txtCaptchaHtmlTemplate;
+            string txtCaptchaHtmlTemplate = "";
+            using (var htmlTemplateFileStream = await FileSystem.OpenAppPackageFileAsync("CaptchaPageTemplate.html.txt"))
+            using (var htmlTemplateReader = new System.IO.StreamReader(htmlTemplateFileStream))
+            {
+                txtCaptchaHtmlTemplate = await htmlTemplateReader.ReadToEndAsync();
+            }
+
+            PlainWebviewHtmlSource.Html = txtCaptchaHtmlTemplate;
+            PlainWebview.Reload();
+        }
+        catch (Exception ex)
+        {
+            System.Console.WriteLine($"WebView setup failed - {ex}");
+            throw;
+        }
     }
 
     private static string BaseUrlForCaptcha => "https://identity-dev.coinpaymints.com";

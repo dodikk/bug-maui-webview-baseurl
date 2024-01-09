@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="https://identity-dev.coinpaymints.com"></base>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+    <style>
+        .text-center {
+            text-align: center;
+        }
+
+        .g-recaptcha {
+            display: inline-block;
+        }
+        
+    </style>
+</head>
+
+
+
+<body onload="logPageBaseUrl()">
+
+    <p>Captcha would be here in the real solution</p>
+
+    <script>function validate(response) {
+            window.location.href = './?token=' + response;
+        }</script>
+
+    <script>function logPageBaseUrl() {
+            alert(window.location.href)
+        }</script>
+</body>
+
+</html>

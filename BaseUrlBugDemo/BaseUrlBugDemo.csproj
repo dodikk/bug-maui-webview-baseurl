@@ -64,6 +64,7 @@
 	<ItemGroup>
 	  <MauiAsset Update="Resources\Raw\CaptchaPageTemplate.html.txt">
 	    <LogicalName>CaptchaPageTemplate.html.txt</LogicalName>
+	    <Generator>MSBuild:UpdateGeneratedFiles</Generator>
 	  </MauiAsset>
 	</ItemGroup>
 </Project>

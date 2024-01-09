@@ -4,26 +4,34 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="BaseUrlBugDemo.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    
+    <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill"
+        Margin="0">
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+        <Label
+            Text="Hello, World!"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="32"
+            HorizontalOptions="Center" />
 
-            <WebView HeightRequest="350">
-                <WebView.Source>
-                    <HtmlWebViewSource x:Name="PlainWebviewHtmlSource" />
-                </WebView.Source>
-            </WebView>
+        <WebView
+            x:Name="PlainWebview"
+            HeightRequest="350"
+            HorizontalOptions="Fill"
+            BackgroundColor="Pink"
+            Margin="0">
 
-        </VerticalStackLayout>
-    </ScrollView>
+            <WebView.Source>
+                <HtmlWebViewSource x:Name="PlainWebviewHtmlSource" />
+            </WebView.Source>
+        </WebView>
+
+    </VerticalStackLayout>
+    
 
 </ContentPage>
 

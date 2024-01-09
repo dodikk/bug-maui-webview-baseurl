@@ -1,25 +1,29 @@
-﻿namespace BaseUrlBugDemo;
+﻿
 
+namespace BaseUrlBugDemo;
 public partial class MainPage : ContentPage
 {
-    int count = 0;
-
     public MainPage()
     {
         InitializeComponent();
+        _ = InitWebViewAsync();
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
+    private async Task InitWebViewAsync()
     {
-        count++;
+        PlainWebviewHtmlSource.BaseUrl = BaseUrlForCaptcha;
 
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
+        string txtCaptchaHtmlTemplate = "";
+        using (var htmlTemplateFileStream = await FileSystem.OpenAppPackageFileAsync("CaptchaPageTemplate.html.txt"))
+        using (var htmlTemplateReader = new System.IO.StreamReader(htmlTemplateFileStream))
+        {
+            txtCaptchaHtmlTemplate = await htmlTemplateReader.ReadToEndAsync();
+        }
 
-        SemanticScreenReader.Announce(CounterBtn.Text);
+        PlainWebviewHtmlSource.Html = txtCaptchaHtmlTemplate;
     }
+
+    private static string BaseUrlForCaptcha => "https://identity-dev.coinpaymints.com";
 }
 
 

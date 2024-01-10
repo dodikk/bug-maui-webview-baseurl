@@ -12,6 +12,7 @@ import WebKit
 class ViewController: UIViewController, WKUIDelegate
 {
     @IBOutlet weak var captchaWebView: WKWebView!
+    @IBOutlet weak var legacyWebView: UIWebView!
     
     override func viewDidLoad()
     {
@@ -37,7 +38,10 @@ class ViewController: UIViewController, WKUIDelegate
         captchaWebView.loadHTMLString(
             captchaPageHtml,
             baseURL: wrappedBaseUrl)
-
+        
+        legacyWebView.loadHTMLString(
+            captchaPageHtml,
+            baseURL: wrappedBaseUrl)
     }
     
     func webView(
@@ -60,7 +64,7 @@ class ViewController: UIViewController, WKUIDelegate
                 _ in
                 completionHandler()
            }
-       ) 
+       )
        alert.addAction(okAction)
 
        present(alert, animated: true, completion: nil)

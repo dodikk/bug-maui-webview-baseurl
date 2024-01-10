@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,34 +13,43 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BaseUrlNativeDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDg-fv-mo1">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="274"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4Y-sy-Rme">
+                                <rect key="frame" x="0.0" y="294" width="320" height="274"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gDg-fv-mo1" secondAttribute="bottom" id="enV-LL-kbs"/>
+                            <constraint firstItem="q4Y-sy-Rme" firstAttribute="top" secondItem="gDg-fv-mo1" secondAttribute="bottom" id="8f3-Ra-xqx"/>
+                            <constraint firstItem="q4Y-sy-Rme" firstAttribute="height" secondItem="gDg-fv-mo1" secondAttribute="height" id="F3L-1z-qbn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q4Y-sy-Rme" secondAttribute="trailing" id="Gic-Ah-Nso"/>
+                            <constraint firstItem="q4Y-sy-Rme" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OhO-Lr-8pn"/>
                             <constraint firstItem="gDg-fv-mo1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hwo-RV-t7U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q4Y-sy-Rme" secondAttribute="bottom" id="pAv-ZT-8Um"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gDg-fv-mo1" secondAttribute="trailing" id="u1W-sR-ts8"/>
                             <constraint firstItem="gDg-fv-mo1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xBG-hy-B7C"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="captchaWebView" destination="gDg-fv-mo1" id="gjf-04-36y"/>
+                        <outlet property="legacyWebView" destination="q4Y-sy-Rme" id="drX-kU-Xee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11" y="4"/>
+            <point key="canvasLocation" x="9.9236641221374047" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

@@ -25,15 +25,19 @@ class ViewController: UIViewController, WKUIDelegate
     {
         super.viewDidAppear(animated);
         
+        
+        LogBundleAndUrls();
+        
+        
+        
+        
         let urlOfCaptchaPage =
             Bundle.main.url(
                 forResource: "CaptchaPageTemplate.html",
                 withExtension: "txt");
         
         let captchaPageHtml: String = try! String(contentsOf: urlOfCaptchaPage!);
-        
-        let rawBaseUrl = "https://identity-dev.coinpaymints.com";
-        let wrappedBaseUrl = URL(string: rawBaseUrl);
+        let wrappedBaseUrl = URL(string: _rawBaseUrl);
         
         captchaWebView.loadHTMLString(
             captchaPageHtml,
@@ -69,5 +73,24 @@ class ViewController: UIViewController, WKUIDelegate
 
        present(alert, animated: true, completion: nil)
     }
+    
+    private func LogBundleAndUrls()
+    {
+        NSLog(Bundle.main.bundlePath);
+        
+        if let combinedPathLikeInMaui = Bundle.main.path(forResource: _rawBaseUrl, ofType: nil)
+        {
+            NSLog(combinedPathLikeInMaui);
+        }
+        
+        if let combinedUrlLikeInMaui = Bundle.main.url(forResource: _rawBaseUrl, withExtension: nil)
+        {
+            NSLog("\(combinedUrlLikeInMaui)");
+        }
+    
+        
+    }
+    
+    private let _rawBaseUrl = "https://identity-dev.coinpaymints.com";
 }
 

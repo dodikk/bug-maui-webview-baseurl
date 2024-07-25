@@ -56,4 +56,10 @@
 	</ItemGroup>
 
 	
+	<ItemGroup>
+	  <None Remove="Platforms\iOS\CustomWebView\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Platforms\iOS\CustomWebView\" />
+	</ItemGroup>
 </Project>
